@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title><%= title%></title>
+	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+    <script type="text/javascript" src="/bootstrap/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+</head>
+<body>
+	<div class="container">
+		<h1><%= title %></h1>
+   		
+		
+		<div class="panel panel-default">
+		  <div class="panel-heading">
+		    <h3 class="panel-title"><%= info.title%></h3>
+		  </div>
+		  <div class="panel-body">
+		  	<pre><%= info.content%></pre>
+		    <% if(info.filepath){ %><!--如果设置的是空字符串就为false-->
+		    	<% for(var i = 0;i<info.filepath.length;i++){%>
+		    		<img src="<%= info.filepath[i]%>" alt="">
+		    	<% } %>
+		    <% } %>
+		  </div>
+		</div>
+	</div>
+</body>
+</html>

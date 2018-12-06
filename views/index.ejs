@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
+    <script type="text/javascript" src="/bootstrap/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.js"></script>
+  </head>
+  <body>
+  	<nav class="navbar navbar-default">
+  	  <div class="container-fluid">
+  	    <!-- Brand and toggle get grouped for better mobile display -->
+  	    <div class="navbar-header">
+  	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+  	        <span class="sr-only">Toggle navigation</span>
+  	        <span class="icon-bar"></span>
+  	        <span class="icon-bar"></span>
+  	        <span class="icon-bar"></span>
+  	      </button>
+  	      <a class="navbar-brand" href="#">Brand</a>
+  	    </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  	  
+  	      <ul class="nav navbar-nav navbar-right">
+  	      	<li><a href="/article">发表文章</a></li>
+  	        <li><a href="/logout">注销</a></li>
+  	      </ul>
+  	    </div><!-- /.navbar-collapse -->
+  	  </div><!-- /.container-fluid -->
+  	</nav>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= currentUser %> 回来</p>
+    <table class="table table-bordered table-hover">
+          <caption>Optional table caption.</caption>
+          <thead>
+            <tr>
+              <th>title/th>
+              <th>作者</th>
+              <th>日期</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          <% for(var i=0; i < articleList.length;i++ ){ %>
+            <tr>
+              <th scope="row"> <a href="/detail/<%= articleList[i]._id%>"><%= articleList[i].title%></a></th>
+              <td><%= articleList[i].author%></td>
+              <td><%= articleList[i].createDate%></td>
+              <td>
+              <a class="btn btn-warning" href="/article/updata/<%= articleList[i]._id%>">修改</a >
+              <a class="btn btn-danger" href="/article/delete/<%= articleList[i]._id%>">删除</a>
+              </td>
+            </tr>  
+          <% }%>
+                    
+          </tbody>
+        </table>
+  </body>
+</html>
